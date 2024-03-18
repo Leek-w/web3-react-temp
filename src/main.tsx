@@ -5,7 +5,7 @@ import App from "./App"
 import { store } from "./store/store"
 import "./index.css"
 import WalletProvider from "./provider/WalletProvider"
-
+import "virtual:svg-icons-register"
 const container = document.getElementById("root")
 
 if (container) {

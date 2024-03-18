@@ -4,6 +4,7 @@ import { setIsPC } from "./store/slice/app"
 import { useEffect } from "react"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { Button } from "@mui/material"
+import SvgIcon from "@/components/SvgIcon"
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -22,6 +23,7 @@ const App = () => {
     <div className="App">
       <ConnectButton></ConnectButton>
       <Button variant="text">Text</Button>
+      <SvgIcon name={"discord"}></SvgIcon>
     </div>
   )
 }
