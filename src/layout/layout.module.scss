@@ -9,7 +9,10 @@
   flex-direction: column;
   justify-content: space-between;
   .test{
-    font-size: 18px;
+    font-size: 18PX;
     color: $color-font-primary;
+    @media screen and (max-width: 750px){
+      font-size: 18px;
+    }
   }
 }

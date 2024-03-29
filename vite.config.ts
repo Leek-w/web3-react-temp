@@ -1,21 +1,12 @@
 import { defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
-// import postcssPluginPx2rem from "postcss-plugin-px2rem"
-import postcsspxtoviewport from "postcss-px-to-viewport"
+import tailwindcss from "tailwindcss"
+import postcsspxtoviewport8plugin from "postcss-px-to-viewport-8-plugin"
 import autoprefixer from "autoprefixer"
 import { join } from "path"
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
 import path from "path"
-// const postcssConfig = {
-//   rootValue: 37.5,
-//   unitPrecwision: 5,
-//   propList: ["*"],
-//   selectorBlackList: [],
-//   replace: true,
-//   mediaQuery: false,
-//   minPixelValue: 0,
-//   exclude: /node_modules/i,
-// }
+
 const postcssConfig = {
   unitToConvert: "px", // 要转化的单位
   viewportWidth: 375, // UI设计稿的宽度
@@ -23,7 +14,7 @@ const postcssConfig = {
   propList: ["*"], // 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
   viewportUnit: "vw", // 指定需要转换成的视窗单位，默认vw
   fontViewportUnit: "vw", // 指定字体需要转换成的视窗单位，默认vw
-  selectorBlackList: [""], // 指定不转换为视窗单位的类名，
+  selectorBlackList: [], // 指定不转换为视窗单位的类名，
   minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
   mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
   replace: true, // 是否转换后直接更换属性值
@@ -50,7 +41,11 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [postcsspxtoviewport(postcssConfig), autoprefixer()],
+      plugins: [
+        postcsspxtoviewport8plugin(postcssConfig),
+        autoprefixer(),
+        tailwindcss,
+      ],
     },
   },
   test: {
