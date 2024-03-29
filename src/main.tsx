@@ -2,10 +2,13 @@ import React from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
 import App from "./App"
-import { store } from "./store/store"
+import { persistor, store } from "./store/store"
 import "./index.css"
 import WalletProvider from "./provider/WalletProvider"
 import "virtual:svg-icons-register"
+import { NextUIProvider } from "@nextui-org/react"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { PersistGate } from "redux-persist/integration/react"
 const container = document.getElementById("root")
 
 if (container) {
@@ -14,9 +17,15 @@ if (container) {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <WalletProvider>
-          <App />
-        </WalletProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <WalletProvider>
+            <NextUIProvider>
+              <NextThemesProvider attribute="class" defaultTheme="dark">
+                <App />
+              </NextThemesProvider>
+            </NextUIProvider>
+          </WalletProvider>
+        </PersistGate>
       </Provider>
     </React.StrictMode>,
   )

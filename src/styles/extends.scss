@@ -1,0 +1,59 @@
+.center_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hCenterBox{
+  display: flex;
+  justify-content: center;
+}
+
+.CenterBox{
+  display: flex;
+  align-items: center;
+}
+
+.colBox{
+  display: flex;
+  flex-direction: column;
+}
+
+.fontMedium {
+  //font-family: 'PUHUI';
+  font-weight: 500;
+}
+
+.fontSemiBold{
+  //font-family: 'PUHUI';
+  font-weight: 600;
+}
+
+.fontBold {
+  //font-family: 'PUHUI';
+  font-weight: bold;
+}
+
+.ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+//theme
+$color-primary: #3DFF00;
+
+$color-font-primary: #fff;
+$color-font-secondary: #A3A3A3;
+

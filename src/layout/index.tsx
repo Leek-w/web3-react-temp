@@ -5,6 +5,7 @@ export default function Layout() {
     <>
       <div className={styles.layout_container}>
         <Outlet />
+        <div className={styles.test}>test</div>
       </div>
     </>
   )
