@@ -7,8 +7,15 @@ import MyRoute from "@/route"
 import "react-toastify/dist/ReactToastify.css"
 const App = () => {
   const dispatch = useAppDispatch()
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    )
+  }
   function resize() {
-    window.innerWidth > 500 ? dispatch(setIsPC(true)) : dispatch(setIsPC(false))
+    window.innerWidth > 500 && !isMobileDevice()
+      ? dispatch(setIsPC(true))
+      : dispatch(setIsPC(false))
   }
   useEffect(() => {
     window.addEventListener("resize", resize)
