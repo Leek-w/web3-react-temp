@@ -1,0 +1,11 @@
+:root {
+    /*默认白色主题取值*/
+    --theme-color: #333;
+    --theme-backgroundColor: #fff;
+}
+
+/*黑色主题对应的变量取值*/
+:root[data-theme="dark"]{
+    --theme-color: #fff;
+    --theme-backgroundColor: #333;
+}

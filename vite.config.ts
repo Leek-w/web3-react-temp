@@ -1,5 +1,6 @@
 import { defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
+import rollupNodePolyFill from "rollup-plugin-node-polyfills"
 import tailwindcss from "tailwindcss"
 import postcsspxtoviewport8plugin from "postcss-px-to-viewport-8-plugin"
 import autoprefixer from "autoprefixer"
@@ -22,9 +23,16 @@ const postcssConfig = {
   landscape: false, // 是否处理横屏情况
 }
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      //@ts-ignore
+      plugins: [rollupNodePolyFill()],
+    },
+  },
   resolve: {
     alias: {
       "@": join(__dirname, "src"),
+      buffer: "buffer",
     },
   },
   plugins: [

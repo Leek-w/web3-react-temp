@@ -4,30 +4,32 @@ import { Provider } from "react-redux"
 import App from "./App"
 import { persistor, store } from "./store/store"
 import "./index.css"
+import "./styles/theme.css"
 import WalletProvider from "./provider/WalletProvider"
 import "virtual:svg-icons-register"
 import { NextUIProvider } from "@nextui-org/react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { PersistGate } from "redux-persist/integration/react"
+import { ThemeProvider } from "@/provider/ThemeProvider"
 const container = document.getElementById("root")
 
 if (container) {
   const root = createRoot(container)
 
   root.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <WalletProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <WalletProvider>
+          <ThemeProvider>
             <NextUIProvider>
               <NextThemesProvider attribute="class" defaultTheme="dark">
                 <App />
               </NextThemesProvider>
             </NextUIProvider>
-          </WalletProvider>
-        </PersistGate>
-      </Provider>
-    </React.StrictMode>,
+          </ThemeProvider>
+        </WalletProvider>
+      </PersistGate>
+    </Provider>,
   )
 } else {
   throw new Error(
