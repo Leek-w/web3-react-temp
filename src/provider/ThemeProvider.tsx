@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react"
+import { useTheme } from "next-themes"
 
 export enum THEMES {
   light = "light",
@@ -19,6 +20,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 export const useThemeContext = () => useContext(ThemeContext)
 
 export const ThemeProvider = (props: any) => {
+  const { setTheme } = useTheme()
   const [mode, setMode] = useState("light")
 
   const theme = useMemo(() => {
@@ -27,6 +29,8 @@ export const ThemeProvider = (props: any) => {
 
   const toggleTheme = () => {
     setMode(mode === "light" ? "dark" : "light")
+
+    setTheme(mode === "light" ? "dark" : "light")
   }
   useEffect(() => {
     document.documentElement.setAttribute(

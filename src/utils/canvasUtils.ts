@@ -14,6 +14,7 @@ export function toCanvas(el: any) {
       canvas.height = rect.height
       canvas.style.width = rect.width + "px"
       canvas.style.height = rect.height + "px"
+
       const context = canvas.getContext("2d")
       const img = new Image()
       img.src = pngDataURI
@@ -82,7 +83,6 @@ export const crop = (
   const ctx = canvas.getContext("2d")
 
   const { x, y } = getMousePos(canvas, initialPosition)
-
   const maxRadius = getMaxRadius(canvas)
   return new Promise(resolve => {
     let progress = 0
@@ -99,7 +99,6 @@ export const crop = (
       } else {
         radius = easeInOutQuart(progress, 0, maxRadius, duration)
       }
-
       ctx.beginPath()
       ctx.arc(x, y, radius, 0, Math.PI * 2, false)
       ctx.fill()

@@ -20,13 +20,13 @@ if (container) {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <WalletProvider>
-          <ThemeProvider>
-            <NextUIProvider>
-              <NextThemesProvider attribute="class" defaultTheme="dark">
+          <NextUIProvider>
+            <NextThemesProvider attribute="class" defaultTheme="dark">
+              <ThemeProvider>
                 <App />
-              </NextThemesProvider>
-            </NextUIProvider>
-          </ThemeProvider>
+              </ThemeProvider>
+            </NextThemesProvider>
+          </NextUIProvider>
         </WalletProvider>
       </PersistGate>
     </Provider>,

@@ -1,17 +1,4 @@
 @import "@/styles/extends.scss";
 .layout_container{
   min-height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .test{
-    font-size: 18PX;
-    color: $color-font-primary;
-    @media screen and (max-width: 750px){
-      font-size: 18px;
-    }
-  }
 }
