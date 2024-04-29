@@ -8,7 +8,6 @@ import "./styles/theme.css"
 import WalletProvider from "./provider/WalletProvider"
 import "virtual:svg-icons-register"
 import { NextUIProvider } from "@nextui-org/react"
-import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { PersistGate } from "redux-persist/integration/react"
 import { ThemeProvider } from "@/provider/ThemeProvider"
 const container = document.getElementById("root")
@@ -21,11 +20,9 @@ if (container) {
       <PersistGate loading={null} persistor={persistor}>
         <WalletProvider>
           <NextUIProvider>
-            <NextThemesProvider attribute="class" defaultTheme="dark">
-              <ThemeProvider>
-                <App />
-              </ThemeProvider>
-            </NextThemesProvider>
+            <ThemeProvider>
+              <App />
+            </ThemeProvider>
           </NextUIProvider>
         </WalletProvider>
       </PersistGate>
