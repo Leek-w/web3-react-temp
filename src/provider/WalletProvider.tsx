@@ -13,21 +13,26 @@ import {
   okxWallet,
   bitgetWallet,
 } from "@rainbow-me/rainbowkit/wallets"
+
+export const SCAN_URL: Record<number, string> = {
+  1: "",
+}
+export const WAGMI_CONFIG = getDefaultConfig({
+  appName: "My RainbowKit App",
+  projectId: "YOUR_PROJECT_ID",
+  chains: [merlin],
+  wallets: [
+    {
+      groupName: "Recommended",
+      wallets: [metaMaskWallet, okxWallet, bitgetWallet],
+    },
+  ],
+})
+
 export default function WalletProvider({ children }: { children: ReactNode }) {
-  const config = getDefaultConfig({
-    appName: "My RainbowKit App",
-    projectId: "YOUR_PROJECT_ID",
-    chains: [merlin],
-    wallets: [
-      {
-        groupName: "Recommended",
-        wallets: [metaMaskWallet, okxWallet, bitgetWallet],
-      },
-    ],
-  })
   const queryClient = new QueryClient()
   return (
-    <WagmiProvider config={config}>
+    <WagmiProvider config={WAGMI_CONFIG}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
           theme={darkTheme({ accentColor: "#7522F2" })}

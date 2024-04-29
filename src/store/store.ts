@@ -13,16 +13,17 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist"
+import { TransactionSlice } from "@/store/slice/transactions"
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(AppSlice)
+const rootReducer = combineSlices(AppSlice, TransactionSlice)
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["App"], // 你想要持久化的reducer名称列表
+  whitelist: ["App", "transactions"], // 你想要持久化的reducer名称列表
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

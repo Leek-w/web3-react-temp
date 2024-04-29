@@ -29,6 +29,9 @@ dependencies:
   '@types/node':
     specifier: ^20.11.24
     version: 20.11.24
+  '@wagmi/core':
+    specifier: ^2.7.0
+    version: 2.7.0(@types/react@18.2.47)(react@18.2.0)(typescript@5.3.3)(viem@2.9.5)
   autoprefixer:
     specifier: ^10.4.18
     version: 10.4.18(postcss@8.4.38)
@@ -6106,6 +6109,32 @@ packages:
 
   /@wagmi/core@2.6.5(@types/react@18.2.47)(react@18.2.0)(typescript@5.3.3)(viem@2.9.5):
     resolution: {integrity: sha512-DLyrc0o+dx05oIhBJuxnS7ekS5e6rB5mytlqPme+Km7aLdeBdcfYB4yJyYCyWoi93OLa7M5sbflTttz3o56bKw==}
+    peerDependencies:
+      '@tanstack/query-core': '>=5.0.0'
+      typescript: '>=5.0.4'
+      viem: 2.x
+    peerDependenciesMeta:
+      '@tanstack/query-core':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      eventemitter3: 5.0.1
+      mipd: 0.0.5(typescript@5.3.3)
+      typescript: 5.3.3
+      viem: 2.9.5(typescript@5.3.3)
+      zustand: 4.4.1(@types/react@18.2.47)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - bufferutil
+      - immer
+      - react
+      - utf-8-validate
+      - zod
+    dev: false
+
+  /@wagmi/core@2.7.0(@types/react@18.2.47)(react@18.2.0)(typescript@5.3.3)(viem@2.9.5):
+    resolution: {integrity: sha512-uhr9Wu59f7HwcV87KVvjDOYHiPUZFslw2a43ocuULdhjwu3MpwOlpNdUZ00TJ0h3oIg19+k9yQHP/KDg0sTIhw==}
     peerDependencies:
       '@tanstack/query-core': '>=5.0.0'
       typescript: '>=5.0.4'
