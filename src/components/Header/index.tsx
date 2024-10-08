@@ -10,6 +10,7 @@ export default function Header() {
         {mode === "light" ? "Dark" : "Light"}
       </Button>
       <div className={styles.test}>test</div>
+      <w3m-button />
     </>
   )
 }
